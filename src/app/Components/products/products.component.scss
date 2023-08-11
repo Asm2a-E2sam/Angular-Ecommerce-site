@@ -1,0 +1,64 @@
+$color_1: #464c55;
+$color_2: #e00000;
+$background-color_1: #ffe2e2;
+$background-color_2: #e00000;
+$background-color_3: #af0000;
+$background-color_4: #fff;
+$background-color_5: #f0f0f0;
+
+/* ////////////////////////////////////////////////////////////////////////////////// */
+.line {
+	line-height: 2rem;
+}
+.font_size {
+	font-size: small;
+	color: $color_1;
+}
+#Save_search {
+	background-color: $background-color_1 !important;
+}
+.price {
+	color: $color_2;
+}
+#cards {
+	line-height: 1rem;
+}
+.cllbtn {
+	background-color: $background-color_2;
+	&:hover {
+		background-color: $background-color_3;
+	}
+}
+.chatbtn {
+	&:hover {
+		background-color: $background-color_1;
+	}
+}
+.img {
+	height: 10rem;
+}
+.options2 {
+	display: none;
+	position: absolute;
+	background-color: $background-color_4;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	width: 100%;
+	max-height: 200px;
+	overflow-y: auto;
+	margin-top: 4px;
+	list-style: none;
+	padding: 0;
+	z-index: 1;
+	li {
+		cursor: pointer;
+		padding: 8px 12px;
+		&:hover {
+			background-color: $background-color_5;
+		}
+	}
+	li.matching {
+		background-color: $background-color_5;
+		cursor: pointer;
+	}
+}

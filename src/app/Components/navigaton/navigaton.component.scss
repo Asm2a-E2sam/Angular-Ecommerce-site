@@ -1,0 +1,144 @@
+$color_1: #e00000;
+$color_2: #4262c9;
+$color_3: #222;
+$background-color_1: #f6f6f6;
+$background-color_2: rgb(255, 244, 244);
+$background-color_3: #fff;
+$background-color_4: #f0f0f0;
+
+/* location */
+/* #container {
+  width: 80%;
+} */
+/* /////////////////////////////////////////////// */
+/* menus Categoreis */
+* {
+	box-sizing: border-box;
+}
+.olx-color {
+	color: $color_1;
+	&:hover {
+		color: $color_1 !important;
+	}
+}
+.ancor {
+	&:hover {
+		color: $color_2 !important;
+	}
+}
+.img {
+	height: 10rem;
+}
+.section {
+	background-color: $background-color_1;
+}
+.angle_div {
+	transition: 500ms;
+}
+.angle_a {
+	&:hover {
+		.angle_div {
+			margin-left: 0.8rem !important;
+		}
+	}
+}
+#a {
+	position: sticky;
+	top: 10%;
+	z-index: 10;
+	&:hover {
+		color: $color_3 !important;
+	}
+}
+#back_to_top {
+	display: none;
+	&:hover {
+		background-color: $background-color_2 !important;
+	}
+}
+.searchable-dropdown {
+	position: relative;
+	display: inline-block;
+}
+.search-container {
+	position: relative;
+}
+.search-icon {
+	position: absolute;
+	top: 50%;
+	left: 10px;
+	transform: translateY(-50%);
+}
+.search-input {
+	box-sizing: border-box;
+	padding: 0px 12px 8px 30px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	width: 100%;
+}
+.options {
+	display: none;
+	position: absolute;
+	background-color: $background-color_3;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	width: 100%;
+	max-height: 200px;
+	overflow-y: auto;
+	margin-top: 4px;
+	list-style: none;
+	padding: 0;
+	z-index: 1;
+	li {
+		cursor: pointer;
+		padding: 8px 12px;
+		&:hover {
+			background-color: $background-color_4;
+		}
+	}
+	li.matching {
+		background-color: $background-color_4;
+		cursor: pointer;
+	}
+}
+.submenu {
+	display: none;
+	position: absolute;
+	left: 100%;
+	top: -1px;
+	left: 30%;
+	width: fit-content;
+	height: fit-content;
+	border-left: 1px solid #d8d6d6 !important;
+	border-radius: 0;
+	margin-left: -6.5rem;
+}
+.arrow {
+	display: none;
+	&:hover {
+		display: block;
+	}
+}
+.dropdown {
+	li {
+		&:hover {
+			>.submenu {
+				display: block;
+			}
+		}
+	}
+	&:hover {
+		.subermenu {
+			display: block;
+		}
+		border-bottom: 1px solid black;
+	}
+}
+@media (min-width: 992px) {
+	.login {
+		border-bottom: 2px solid #e00000;
+		&:hover {
+			border-bottom: none;
+		}
+	}
+}
