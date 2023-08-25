@@ -1,0 +1,113 @@
+<style>
+  .product-card {
+    max-width: 400px;
+    min-width: 300px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .product-image {
+    height: 200px;
+    object-fit: cover;
+  }
+  .product-details {
+    padding: 15px;
+  }
+  .product-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  .product-description {
+    font-size: 14px;
+    color: #6c757d;
+    margin-bottom: 15px;
+  }
+  .product-price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+  }
+  .buy-button {
+    background-color: #39c;
+    border: none;
+    width: 100%;
+    padding: 10px 0;
+    border-radius: 0 0 10px 10px;
+  }
+  .count{
+    width:50px;
+    text-align: center;
+    border-radius: 5px;
+  }
+  .btn{
+    height: 35px !important;
+  }
+  .home{
+    position: absolute ;
+    top : 150px ;
+    left : 25px;
+  }
+  .img-fluid{
+    height: 350px;  
+  }
+  .gallery{
+    width: 90px;
+    height: 80px;
+  }
+</style>
+<div class="container row align-items-center justify-content-center"  *ngIf="product != undefined" >
+  <div class="home d-flex align-items-center text-primary" role="button" routerLink='/'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-house-fill text-primary" viewBox="0 0 16 16">
+      <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z"/>
+      <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z"/>
+    </svg> 
+    <span style="font-size: 25px;">Home</span>
+  </div>
+        <div class="col-1">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-caret-left-fill text-primary" viewBox="0 0 16 16" role="button" (click)='back()'>
+            <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+          </svg>
+        </div>
+        <div class="col-10">
+          <div class="row">
+            <div class="col-md-6">
+              <img [src]="product.Img" alt="Product Image" class="img-fluid">
+              <div class="d-flex justify-content-between py-3">
+                <img [src]="product.Img" alt="Product Image" class="gallery card">
+                <img [src]="product.Img" alt="Product Image" class="gallery card">
+                <img [src]="product.Img" alt="Product Image" class="gallery card">
+                <img [src]="product.Img" alt="Product Image" class="gallery card">
+              </div>
+          </div>
+          <div class="col-md-6">
+              <h1 class="text-primary">{{product.Name}}</h1>
+              <p>{{product.Details}}</p>
+              <div>Category Name: 
+            <ng-container [ngSwitch]="product.CategoryID">
+              <ng-container *ngSwitchCase="1">Vehicles</ng-container>
+              <ng-container *ngSwitchCase="2">Headphones</ng-container>
+              <ng-container *ngSwitchCase="3">Mobile & Tablet</ng-container>
+              <ng-container *ngSwitchCase="4">Fashion</ng-container>
+              <ng-container *ngSwitchCase="5">Electronics</ng-container>
+            </ng-container>
+          </div>
+          <p class="card-text product-description">Quantity: {{product.Quantity}} <input class="count ms-3" type="number" value="1" #count>
+          </p>
+          <p class="card-text product-description"><span class="text-decoration-line-through">{{product.Price | currency :'EGP'}}</span> Discount :{{PServices.tenPercent}}</p>
+          <p class="card-text product-price" [ngClass] = "{'text-secondary':product.Quantity == 0}">{{PServices.getDiscount(product.Price, 10)| currency :'EGP'}}</p>
+          <div class="d-flex">
+            <button class="btn btn-success buy-button me-3"[disabled]="product.Quantity==0" (click)="PServices.addToCard(product,count.value)">Buy Now</button>
+          </div>
+          </div>
+          </div>
+        </div>
+        <div class="col-1">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-caret-right-fill text-primary" viewBox="0 0 16 16" role="button" (click)='next()'>
+            <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+          </svg>
+        </div>
+</div>
+<div class="container-fluid"  *ngIf="product == undefined" >
+  <app-error></app-error>
+</div>

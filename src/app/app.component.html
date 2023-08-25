@@ -1,16 +1,9 @@
-<div class="container-fluid">
+<div class="container-fluid" style="width:100%;box-sizing: border-box;overflow: hidden;">
     <div class="container-fluid">
         <app-header></app-header>
         <app-navigaton></app-navigaton>
     </div>
-    <div class="container d-flex">
-        <div class="col-3 line pe-3">
-            <app-side-menu></app-side-menu>
-        </div>
-        <div class="col-9">            
-            <app-products></app-products>
-        </div>
-    </div>
+    <router-outlet></router-outlet>
     <div class="container-fluid">
         <app-footer></app-footer>
     </div>

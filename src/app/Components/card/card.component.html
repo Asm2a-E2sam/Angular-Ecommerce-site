@@ -1,0 +1,27 @@
+<div class="card p-3 m-3">
+    <h3 class="text-primary">My Card :</h3>
+    <table class="table border col-12 text-center">
+      <thead class="bg-primary text-white">
+        <th class="py-2">ID</th>
+        <th class="py-2">Name</th>
+        <th class="py-2">Price</th>
+        <th class="py-2">Quantity</th>
+        <th class="py-2">Total Price</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of cardArr">
+          <td>{{ item.name }}</td>
+          <td>{{ item.price }}</td>
+          <td>{{ item.count }}</td>
+          <td>{{ PServices.calcTotalPrice(item) }}</td>
+          <td
+            class="text-danger"
+            (click)="PServices.deleteFromCard(item)"
+            role="button"
+          >
+            delete
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

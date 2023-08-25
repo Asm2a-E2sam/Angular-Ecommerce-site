@@ -9,6 +9,19 @@ import { FooterComponent } from './Components/footer/footer.component';
 import { ProductsComponent } from './Components/products/products.component';
 import { SideMenuComponent } from './Components/side-menu/side-menu.component';
 
+import{ FormsModule } from '@angular/forms';
+import { FormateCardNumberPipe } from './Pipes/formate-card-number.pipe';
+import { MainComponent } from './Components/main/main.component';
+import { ContactComponent } from './Components/contact/contact.component';
+import { AboutComponent } from './Components/about/about.component';
+import { ErrorComponent } from './Components/error/error.component';
+import { AllProductsComponent } from './Components/all-products/all-products.component';
+import { SingleProductComponent } from './Components/single-product/single-product.component';
+import { MoreDetailsComponent } from './Components/more-details/more-details.component'
+import { HttpClientModule } from '@angular/common/http';
+import { UserComponent } from './Components/user/user.component';
+import { CardComponent } from './Components/card/card.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,11 +29,23 @@ import { SideMenuComponent } from './Components/side-menu/side-menu.component';
     HeaderComponent,
     FooterComponent,
     ProductsComponent,
-    SideMenuComponent
+    SideMenuComponent,
+    FormateCardNumberPipe,
+    MainComponent,
+    ContactComponent,
+    AboutComponent,
+    ErrorComponent,
+    AllProductsComponent,
+    SingleProductComponent,
+    MoreDetailsComponent,
+    UserComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
