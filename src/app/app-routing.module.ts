@@ -9,20 +9,35 @@ import { AllProductsComponent } from './Components/all-products/all-products.com
 import { SingleProductComponent } from './Components/single-product/single-product.component';
 import { MoreDetailsComponent } from './Components/more-details/more-details.component';
 import { CardComponent } from './Components/card/card.component';
+import { AdminComponent } from './Components/admin/admin.component';
+import { AddProductComponent } from './Components/add-product/add-product.component';
+import { LoginComponent } from './Components/login/login.component';
+import { RegisterComponent } from './Components/register/register.component';
+import { ProfileComponent } from './Components/profile/profile.component';
+import { LogoutComponent } from './Components/logout/logout.component';
 
 const routes: Routes = [
   {path:"", redirectTo :"home", pathMatch:"full"},
   {path:"home", component: MainComponent},
-  // {path:"allproducts", component: AllProductsComponent},
   {path:"products", component: MoreDetailsComponent ,
   children:
     [{path: "", component: AllProductsComponent},
-    {path: ":id", component: SingleProductComponent},
-    {path:"**", component: ErrorComponent}
-  ]},
+    {path: ":id", component: SingleProductComponent}    
+    ]
+  },
   {path:"contact", component: ContactComponent},
   {path:"card", component: CardComponent},
   {path:"about", component: AboutComponent},
+  {path:"admin", component: AdminComponent,
+  children:
+    [{path:"", component: AdminComponent},
+    {path: "login", component: LoginComponent},
+    {path: "register", component: RegisterComponent},
+    {path: "logout", component: LogoutComponent},
+    {path: "profile", component: ProfileComponent},
+    {path: "addProduct", component: AddProductComponent}    
+    ]
+  },
   {path:"**", component: ErrorComponent}
 ];
 

@@ -19,8 +19,13 @@ import { AllProductsComponent } from './Components/all-products/all-products.com
 import { SingleProductComponent } from './Components/single-product/single-product.component';
 import { MoreDetailsComponent } from './Components/more-details/more-details.component'
 import { HttpClientModule } from '@angular/common/http';
-import { UserComponent } from './Components/user/user.component';
 import { CardComponent } from './Components/card/card.component';
+import { AdminComponent } from './Components/admin/admin.component';
+import { AddProductComponent } from './Components/add-product/add-product.component';
+import { LoginComponent } from './Components/login/login.component';
+import { RegisterComponent } from './Components/register/register.component';
+import { LogoutComponent } from './Components/logout/logout.component';
+import { ProfileComponent } from './Components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -38,8 +43,13 @@ import { CardComponent } from './Components/card/card.component';
     AllProductsComponent,
     SingleProductComponent,
     MoreDetailsComponent,
-    UserComponent,
-    CardComponent
+    CardComponent,
+    AdminComponent,
+    AddProductComponent,
+    LoginComponent,
+    RegisterComponent,
+    LogoutComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

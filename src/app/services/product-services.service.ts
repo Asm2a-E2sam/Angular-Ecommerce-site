@@ -34,7 +34,7 @@ export class ProductServicesService  implements OnInit{
       {id:5,name:"Electronics"}
       ]
     this.products=[
-        {ID: 1,
+        {id: 1,
           Name: "Toyota",
           Quantity: 3,
           Price: 500000,
@@ -43,7 +43,7 @@ export class ProductServicesService  implements OnInit{
           CategoryName:"Vehicles",
           Details:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!"
         },
-        {ID: 2,
+        {id: 2,
           Name: "Rice Cooker",
           Quantity: 30,
           Price: 7000,
@@ -52,7 +52,7 @@ export class ProductServicesService  implements OnInit{
           CategoryName:"Electronics",
           Details:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!"
         },
-        {ID: 3,
+        {id: 3,
           Name: "LG TV",
           Quantity: 5,
           Price: 100000,
@@ -61,7 +61,7 @@ export class ProductServicesService  implements OnInit{
           CategoryName:"Electronics",
           Details:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!"
         },
-        {ID: 4,
+        {id: 4,
           Name: "Dior Watch",
           Quantity: 40,
           Price: 1000,
@@ -70,7 +70,7 @@ export class ProductServicesService  implements OnInit{
           CategoryName:"Fashion",
           Details:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!"
         },
-        {ID: 5,
+        {id: 5,
           Name: "Lacoste Bag",
           Quantity: 10,
           Price: 5000,
@@ -79,7 +79,7 @@ export class ProductServicesService  implements OnInit{
           CategoryName:"Fashion",
           Details:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!"
         },
-        {ID: 6,
+        {id: 6,
           Name: "Samsung",
           Quantity: 10,
           Price: 7000,
@@ -88,7 +88,7 @@ export class ProductServicesService  implements OnInit{
           CategoryName:"Mobile & Tablet",
           Details:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!"
         },
-        {ID: 7,
+        {id: 7,
           Name: "Headphone 1",
           Quantity: 20,
           Price: 600,
@@ -97,7 +97,7 @@ export class ProductServicesService  implements OnInit{
           CategoryName:"Headphones",
           Details:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!"
         },
-        {ID: 8,
+        {id: 8,
           Name: "Headphone 2",
           Quantity: 20,
           Price: 700,
@@ -106,7 +106,7 @@ export class ProductServicesService  implements OnInit{
           CategoryName:"Headphones",
           Details:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!"
         },
-        {ID: 9,
+        {id: 9,
           Name: "Headphone 3",
           Quantity: 20,
           Price: 500,
@@ -115,7 +115,7 @@ export class ProductServicesService  implements OnInit{
           CategoryName:"Headphones",
           Details:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!"
         },
-        {ID: 10,
+        {id: 10,
           Name: "Mercedes",
           Quantity: 10,
           Price: 1000000,
@@ -124,7 +124,7 @@ export class ProductServicesService  implements OnInit{
           CategoryName:"Vehicles",
           Details:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!"
         },
-        {ID: 11,
+        {id: 11,
           Name: "Motorcycle",
           Quantity: 50,
           Price: 10000,
@@ -133,7 +133,7 @@ export class ProductServicesService  implements OnInit{
           CategoryName:"Vehicles",
           Details:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!"
         },
-        {ID: 12,
+        {id: 12,
           Name: "Toshiba",
           Quantity: 5,
           Price: 500000,
@@ -142,7 +142,7 @@ export class ProductServicesService  implements OnInit{
           CategoryName:"Electronics",
           Details:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!"
         },
-        {ID: 13,
+        {id: 13,
           Name: "Dior Watch",
           Quantity: 10,
           Price: 8000,
@@ -151,7 +151,7 @@ export class ProductServicesService  implements OnInit{
           CategoryName:"Fashion",
           Details:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!"
         },
-        {ID: 14,
+        {id: 14,
           Name: "IPhone",
           Quantity: 10,
           Price: 20000,
@@ -179,8 +179,8 @@ export class ProductServicesService  implements OnInit{
       this.MinusQuantity(item,count); 
     }else{
       if(count <= item.Quantity){
-        let newCard:Card={name:`${item.Name}`,price:item.Price,count:1}      
-        this.cardArr.push(newCard);
+        // let newCard:Card={ name:`${item.Name}`,price:item.Price,count:1}      
+        // this.cardArr.push(newCard);
         this.showMessage();
         this.MinusQuantity(item,count);
       }else{
@@ -212,8 +212,8 @@ export class ProductServicesService  implements OnInit{
     let newPrd = this.products.find((prd:IProduct)=> prd.Name == item.Name)
     
     if(newPrd){
-      this.products[newPrd.ID-1].Quantity -= count; 
-      console.log(this.products[newPrd.ID-1].Quantity, this.products);
+      this.products[newPrd.id-1].Quantity -= count; 
+      console.log(this.products[newPrd.id-1].Quantity, this.products);
     }
   }
 
@@ -221,8 +221,8 @@ export class ProductServicesService  implements OnInit{
     let newPrd = this.products.find((prd:IProduct)=> prd.Name == item.name)
     
     if(newPrd){
-      this.products[newPrd.ID-1].Quantity +=item.count; 
-      console.log(this.products[newPrd.ID-1].Quantity);
+      this.products[newPrd.id-1].Quantity +=item.count; 
+      console.log(this.products[newPrd.id-1].Quantity);
     }
   }
 
@@ -238,20 +238,20 @@ export class ProductServicesService  implements OnInit{
   
   filtername: string=''
   
-  set listFilter(value:string) {
-    this.filtername= value;
-    this.filteredProducts = this.performFilter(value);
-  }
+  // set listFilter(value:string) {
+  //   this.filtername= value;
+  //   this.filteredProducts = this.performFilter(value);
+  // }
   
   // filter data
-  performFilter(filterValue:string):IProduct[]{
-    // const id = this.categories.findIndex(cat => cat.name.includes(filterValue))
-    if(filterValue == "All Categories"){
-      return this.products
-    }else{
-    return this.products.filter((prd:IProduct)=>prd.CategoryName.includes(filterValue));
-    }
-  }
+  // performFilter(filterValue:string):IProduct[]{
+  //   // const id = this.categories.findIndex(cat => cat.name.includes(filterValue))
+  //   if(filterValue == "All Categories"){
+  //     return this.products
+  //   }else{
+  //   return this.products.filter((prd:IProduct)=>prd.CategoryName.includes(filterValue));
+  //   }
+  // }
 
   filtername2: string=''
   // filter data
@@ -268,14 +268,14 @@ export class ProductServicesService  implements OnInit{
     let newPrd = this.products.find((prd:IProduct)=> prd.Name == item.name)
     
     if(newPrd){
-      this.products[newPrd.ID-1].Quantity +=item.count; 
-      console.log(this.products[newPrd.ID-1].Quantity, this.products);
+      this.products[newPrd.id-1].Quantity +=item.count; 
+      console.log(this.products[newPrd.id-1].Quantity, this.products);
     }
     return this.products;
   }
 
   getProductByID(id : number) : IProduct | undefined{
-    return this.products.find((prd:IProduct)=> prd.ID == id)
+    return this.products.find((prd:IProduct)=> prd.id == id)
   }
 
   getProductByCategoryID(id : number) : IProduct | undefined{
@@ -291,7 +291,7 @@ export class ProductServicesService  implements OnInit{
   }
 
   ProductsIds():number[]{
-    return this.products.map((prd) => prd.ID);
+    return this.products.map((prd) => prd.id);
   }
 
 }

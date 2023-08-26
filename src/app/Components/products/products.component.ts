@@ -21,7 +21,7 @@ export class ProductsComponent implements OnInit{
   // @Input() filteredProducts:IProduct[]=[];
   // @Input() products:IProduct[]=[];
   // @Input() tenPercent:string = '';
-  @Input() cardArr:Card[]=[]
+  // @Input() cardArr:Card[]=[]
   
 
 

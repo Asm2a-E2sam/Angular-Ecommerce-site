@@ -29,7 +29,7 @@
           <p class="card-text product-price" [ngClass] = "{'text-secondary':item.Quantity == 0}">{{PServices.getDiscount(item.Price, 10)| currency :'EGP'}}</p>
           <div class="d-flex">
             <button class="btn btn-success buy-button me-3"[disabled]="item.Quantity==0" (click)="addToCard(item,count.value)">Buy Now</button>
-          <a class="btn btn-success buy-button" [routerLink]="['/products',item.ID]">More Details</a>
+          <a class="btn btn-success buy-button" [routerLink]="['/products',item.id]">More Details</a>
           </div>
         </div>
       </div>

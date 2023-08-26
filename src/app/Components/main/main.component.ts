@@ -12,29 +12,28 @@ import { ProductServicesService } from 'src/app/services/product-services.servic
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
-  client: string = "Asmaa"; 
-  cardArr:Card[]=[];
-  store:Store = new Store("Buma",["Cairo"],"https://i.postimg.cc/BvKw80Bx/favicon.png")
-  categories: ICategories[] = [];
-  products: IProduct[]= [];
+  // client: string = "Asmaa"; 
+  // cardArr:Card[]=[];
+  // store:Store = new Store("Buma",["Cairo"],"https://i.postimg.cc/BvKw80Bx/favicon.png")
+  // categories: ICategories[] = [];
+  // products: IProduct[]= [];
 
-  // date: Date= new Date();
-  filteredProducts:IProduct[]=[];
+  // // date: Date= new Date();
+  // filteredProducts:IProduct[]=[];
 
-  card:string ="1234567894561236"
+  // card:string ="1234567894561236"
 
-  filtername: string=''
-  filtername2: string=''
+  // filtername: string=''
+  // filtername2: string=''
 
-  constructor(public PServices:ProductServicesService) {
-    this.categories=PServices.categories
-    this.products=PServices.products
+  constructor(public PServices:ProductServicesService){
+
   }
-  
+    
   ngOnInit(): void {
-    this.filtername = this.PServices.filtername
-    this.filtername2 = this.PServices.filtername2
-    this.filteredProducts=this.products;
+    // this.filtername = this.PServices.filtername
+    // this.filtername2 = this.PServices.filtername2
+    // this.filteredProducts=this.products;
   }
 
   
