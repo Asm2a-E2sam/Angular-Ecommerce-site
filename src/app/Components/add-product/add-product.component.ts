@@ -19,7 +19,7 @@ export class AddProductComponent {
     this.productAPIService.addNewProduct(this.newProduct).subscribe({
       next:(data)=>{
         console.log("Data:", data);
-        this.router.navigate(['/prouducts'])
+        this.router.navigate(['/products'])
       },
       error:(err)=>{
         console.log('Error:', err)

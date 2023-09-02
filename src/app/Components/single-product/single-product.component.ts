@@ -25,7 +25,6 @@ export class SingleProductComponent implements OnInit{
     this.activatedRouter.paramMap.subscribe((params)=>{
       this.id = (params.get('id'))? Number(params.get('id')): 0;
       this.product= this.PServices.getProductByID(this.id)
-
     })
   }
     

@@ -21,6 +21,10 @@ export class ProductAPIService{
     return this.httpClient.get<IProduct[]>(`${environment.BaseApiURL}/products`);
   }
 
+  getProductByID(id : number):Observable<IProduct>{
+    return this.httpClient.get<IProduct>(`${environment.BaseApiURL}/products/${id}`);
+  }
+
   getProductsByIDCategory(cid : number):Observable<IProduct[]>{
     return this.httpClient.get<IProduct[]>(`${environment.BaseApiURL}/products?CategoryID=${cid}`);
   }
@@ -44,5 +48,12 @@ export class ProductAPIService{
     );
   }
 
+  // ProductsIds():number[]{
+  //   return this.getAllProducts().subscribe(
+  //     data =>{
+  //       data.map((prd) => prd.id);
+  //     }
+  //   )
+  // }
 }
 

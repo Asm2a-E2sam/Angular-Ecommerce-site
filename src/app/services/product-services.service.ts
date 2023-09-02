@@ -4,6 +4,8 @@ import { Card } from '../Models/card';
 import { IProduct } from '../Models/iproduct';
 import { ICategories } from '../Models/icategories';
 import { DiscountOffers } from '../Models/discount-offers';
+import { ProductAPIService } from './product-api.service';
+import { CategoryAPIService } from './category-api.service';
 
 @Injectable({
   providedIn: 'root'
@@ -23,144 +25,157 @@ export class ProductServicesService  implements OnInit{
 
   card:string ="1234567894561236"
 
-  constructor() {
+  constructor(public PAPIService : ProductAPIService, public CAPIService: CategoryAPIService) {
     this.tenPercent = DiscountOffers.TEN_PERCENT;
     this.client= "Asmaa";
-    this.categories=[
-      {id:1,name:"Vehicles"},
-      {id:2,name:"Headphones"},
-      {id:3,name:"Mobile & Tablet"},
-      {id:4,name:"Fashion"},
-      {id:5,name:"Electronics"}
-      ]
-    this.products=[
-        {id: 1,
-          Name: "Toyota",
-          Quantity: 3,
-          Price: 500000,
-          Img: "../../../assets/images/car1.jfif",
-          CategoryID: 1,
-          CategoryName:"Vehicles",
-          Details:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!"
-        },
-        {id: 2,
-          Name: "Rice Cooker",
-          Quantity: 30,
-          Price: 7000,
-          Img: "../../../assets/images/Cooker.jfif",
-          CategoryID: 5,
-          CategoryName:"Electronics",
-          Details:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!"
-        },
-        {id: 3,
-          Name: "LG TV",
-          Quantity: 5,
-          Price: 100000,
-          Img: "../../../assets/images/LG.jfif",
-          CategoryID: 5,
-          CategoryName:"Electronics",
-          Details:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!"
-        },
-        {id: 4,
-          Name: "Dior Watch",
-          Quantity: 40,
-          Price: 1000,
-          Img: "../../../assets/images/fashion2.jfif",
-          CategoryID: 4,
-          CategoryName:"Fashion",
-          Details:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!"
-        },
-        {id: 5,
-          Name: "Lacoste Bag",
-          Quantity: 10,
-          Price: 5000,
-          Img: "../../../assets/images/fashion1.jfif",
-          CategoryID: 4,
-          CategoryName:"Fashion",
-          Details:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!"
-        },
-        {id: 6,
-          Name: "Samsung",
-          Quantity: 10,
-          Price: 7000,
-          Img: "../../../assets/images/phone1.jpg",
-          CategoryID: 3,
-          CategoryName:"Mobile & Tablet",
-          Details:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!"
-        },
-        {id: 7,
-          Name: "Headphone 1",
-          Quantity: 20,
-          Price: 600,
-          Img: "../../../assets/images/headphone1.jpg",
-          CategoryID: 2,
-          CategoryName:"Headphones",
-          Details:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!"
-        },
-        {id: 8,
-          Name: "Headphone 2",
-          Quantity: 20,
-          Price: 700,
-          Img: "../../../assets/images/headphone2.jpg",
-          CategoryID: 2,
-          CategoryName:"Headphones",
-          Details:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!"
-        },
-        {id: 9,
-          Name: "Headphone 3",
-          Quantity: 20,
-          Price: 500,
-          Img: "../../../assets/images/headphone3.jpg",
-          CategoryID: 2,
-          CategoryName:"Headphones",
-          Details:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!"
-        },
-        {id: 10,
-          Name: "Mercedes",
-          Quantity: 10,
-          Price: 1000000,
-          Img: "../../../assets/images/car2.jfif",
-          CategoryID: 1,
-          CategoryName:"Vehicles",
-          Details:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!"
-        },
-        {id: 11,
-          Name: "Motorcycle",
-          Quantity: 50,
-          Price: 10000,
-          Img: "../../../assets/images/moto1.jfif",
-          CategoryID: 1,
-          CategoryName:"Vehicles",
-          Details:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!"
-        },
-        {id: 12,
-          Name: "Toshiba",
-          Quantity: 5,
-          Price: 500000,
-          Img: "../../../assets/images/toshiba.jfif",
-          CategoryID: 5,
-          CategoryName:"Electronics",
-          Details:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!"
-        },
-        {id: 13,
-          Name: "Dior Watch",
-          Quantity: 10,
-          Price: 8000,
-          Img: "../../../assets/images/fashion3.jfif",
-          CategoryID: 1,
-          CategoryName:"Fashion",
-          Details:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!"
-        },
-        {id: 14,
-          Name: "IPhone",
-          Quantity: 10,
-          Price: 20000,
-          Img: "../../../assets/images/phone2.jpg",
-          CategoryID: 3,
-          CategoryName:"Mobile & Tablet",
-          Details:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!"
-        }
-      ];
+
+    this.PAPIService.getAllProducts().subscribe(
+      data =>{
+        this.products = data;
+      }
+    )
+
+    this.CAPIService.getAllCategories().subscribe(
+      data =>{
+        this.categories= data;
+      }
+    )
+    // this.categories=[
+    //   {id:1,name:"Vehicles"},
+    //   {id:2,name:"Headphones"},
+    //   {id:3,name:"Mobile & Tablet"},
+    //   {id:4,name:"Fashion"},
+    //   {id:5,name:"Electronics"}
+    //   ]
+    // this.products=[
+    //     {id: 1,
+    //       Name: "Toyota",
+    //       Quantity: 3,
+    //       Price: 500000,
+    //       Img: "../../../assets/images/car1.jfif",
+    //       CategoryID: 1,
+    //       CategoryName:"Vehicles",
+    //       Details:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!"
+    //     },
+    //     {id: 2,
+    //       Name: "Rice Cooker",
+    //       Quantity: 30,
+    //       Price: 7000,
+    //       Img: "../../../assets/images/Cooker.jfif",
+    //       CategoryID: 5,
+    //       CategoryName:"Electronics",
+    //       Details:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!"
+    //     },
+    //     {id: 3,
+    //       Name: "LG TV",
+    //       Quantity: 5,
+    //       Price: 100000,
+    //       Img: "../../../assets/images/LG.jfif",
+    //       CategoryID: 5,
+    //       CategoryName:"Electronics",
+    //       Details:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!"
+    //     },
+    //     {id: 4,
+    //       Name: "Dior Watch",
+    //       Quantity: 40,
+    //       Price: 1000,
+    //       Img: "../../../assets/images/fashion2.jfif",
+    //       CategoryID: 4,
+    //       CategoryName:"Fashion",
+    //       Details:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!"
+    //     },
+    //     {id: 5,
+    //       Name: "Lacoste Bag",
+    //       Quantity: 10,
+    //       Price: 5000,
+    //       Img: "../../../assets/images/fashion1.jfif",
+    //       CategoryID: 4,
+    //       CategoryName:"Fashion",
+    //       Details:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!"
+    //     },
+    //     {id: 6,
+    //       Name: "Samsung",
+    //       Quantity: 10,
+    //       Price: 7000,
+    //       Img: "../../../assets/images/phone1.jpg",
+    //       CategoryID: 3,
+    //       CategoryName:"Mobile & Tablet",
+    //       Details:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!"
+    //     },
+    //     {id: 7,
+    //       Name: "Headphone 1",
+    //       Quantity: 20,
+    //       Price: 600,
+    //       Img: "../../../assets/images/headphone1.jpg",
+    //       CategoryID: 2,
+    //       CategoryName:"Headphones",
+    //       Details:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!"
+    //     },
+    //     {id: 8,
+    //       Name: "Headphone 2",
+    //       Quantity: 20,
+    //       Price: 700,
+    //       Img: "../../../assets/images/headphone2.jpg",
+    //       CategoryID: 2,
+    //       CategoryName:"Headphones",
+    //       Details:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!"
+    //     },
+    //     {id: 9,
+    //       Name: "Headphone 3",
+    //       Quantity: 20,
+    //       Price: 500,
+    //       Img: "../../../assets/images/headphone3.jpg",
+    //       CategoryID: 2,
+    //       CategoryName:"Headphones",
+    //       Details:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!"
+    //     },
+    //     {id: 10,
+    //       Name: "Mercedes",
+    //       Quantity: 10,
+    //       Price: 1000000,
+    //       Img: "../../../assets/images/car2.jfif",
+    //       CategoryID: 1,
+    //       CategoryName:"Vehicles",
+    //       Details:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!"
+    //     },
+    //     {id: 11,
+    //       Name: "Motorcycle",
+    //       Quantity: 50,
+    //       Price: 10000,
+    //       Img: "../../../assets/images/moto1.jfif",
+    //       CategoryID: 1,
+    //       CategoryName:"Vehicles",
+    //       Details:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!"
+    //     },
+    //     {id: 12,
+    //       Name: "Toshiba",
+    //       Quantity: 5,
+    //       Price: 500000,
+    //       Img: "../../../assets/images/toshiba.jfif",
+    //       CategoryID: 5,
+    //       CategoryName:"Electronics",
+    //       Details:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!"
+    //     },
+    //     {id: 13,
+    //       Name: "Dior Watch",
+    //       Quantity: 10,
+    //       Price: 8000,
+    //       Img: "../../../assets/images/fashion3.jfif",
+    //       CategoryID: 1,
+    //       CategoryName:"Fashion",
+    //       Details:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!"
+    //     },
+    //     {id: 14,
+    //       Name: "IPhone",
+    //       Quantity: 10,
+    //       Price: 20000,
+    //       Img: "../../../assets/images/phone2.jpg",
+    //       CategoryID: 3,
+    //       CategoryName:"Mobile & Tablet",
+    //       Details:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste dignissimos, harum voluptates, error facilis at sit nemo vitae ipsum officia inventore repellat ipsam. Corporis commodi quis porro laboriosam et!"
+    //     }
+    //   ];
+
   }  
   
   ngOnInit(): void {

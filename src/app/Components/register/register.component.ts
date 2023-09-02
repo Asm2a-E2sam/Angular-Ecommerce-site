@@ -2,6 +2,8 @@ import { AdminAPIService } from './../../services/admin-api.service';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Iadmin } from 'src/app/Models/iadmin';
+import { IUser } from 'src/app/Models/iuser';
+import { UserAPIService } from 'src/app/services/user-api.service';
 
 @Component({
   selector: 'app-register',
@@ -9,9 +11,10 @@ import { Iadmin } from 'src/app/Models/iadmin';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
+  isUser:boolean =true;
 
-  constructor(private adminAPIService:AdminAPIService, private router: Router){}
-  admin:Iadmin = {} as Iadmin;
+  constructor(private userAPIService:UserAPIService, private router: Router){}
+  user:IUser = {} as IUser;
   register(){
   //   let admin: Iadmin={
   //     id: 2,
@@ -21,7 +24,7 @@ export class RegisterComponent {
   //     password:"123456"
   //   };
         
-    this.adminAPIService.signUpAdmin(this.admin).subscribe({
+    this.userAPIService.signUpUser(this.user).subscribe({
       next:(data)=>{
         console.log("Data:", data);
         this.router.navigate(['/home'])
@@ -30,5 +33,10 @@ export class RegisterComponent {
         console.log('Error:', err)
       }
     })    
+  }
+
+  switchToAdmin(){
+    this.isUser =false;
+    this.router.navigate(['/admin/register'])
   }
 }

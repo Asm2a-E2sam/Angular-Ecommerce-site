@@ -15,6 +15,7 @@ import { LoginComponent } from './Components/login/login.component';
 import { RegisterComponent } from './Components/register/register.component';
 import { ProfileComponent } from './Components/profile/profile.component';
 import { LogoutComponent } from './Components/logout/logout.component';
+import { UsersComponent } from './Components/users/users.component';
 
 const routes: Routes = [
   {path:"", redirectTo :"home", pathMatch:"full"},
@@ -36,6 +37,15 @@ const routes: Routes = [
     {path: "logout", component: LogoutComponent},
     {path: "profile", component: ProfileComponent},
     {path: "addProduct", component: AddProductComponent}    
+    ]
+  },
+  {path:"user", component: UsersComponent,
+  children:
+    [{path:"", component: UsersComponent},
+    {path: "login", component: LoginComponent},
+    {path: "register", component: RegisterComponent},
+    {path: "logout", component: LogoutComponent},
+    {path: "profile", component: ProfileComponent}
     ]
   },
   {path:"**", component: ErrorComponent}
