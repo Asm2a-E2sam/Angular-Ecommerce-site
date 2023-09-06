@@ -1,16 +1,120 @@
-    <form class="card p-4 m-3 shadow p-3 bg-body-tertiary rounded" style="width: 700px;" (ngSubmit)="register()">
-        <div class="form-group m-3">
-          <input type="text" class="form-control shadow-sm rounded" name="fullName" placeholder="Enter your Full Name" required [(ngModel)]="user.fullName" >
-        </div>
-        <div class="form-group m-3">
-            <input type="email" class="form-control shadow-sm rounded" name="email" placeholder="Enter your Email" required [(ngModel)]="user.email">
-        </div>
-        <div class="form-group m-3">
-            <input type="password" class="form-control shadow-sm rounded" name="password" placeholder="Enter your Password" required [(ngModel)]="user.password">
-        </div>
-              
-        <div class="text-center my-2">
-        <button type="submit" class="btn btn-primary shadow rounded me-3" style="width:150px;" >Register</button>
-        <button class="btn btn-primary shadow rounded" style="width:200px;" (click)="switchToAdmin()">Register As Admin</button>
-        </div>
-      </form>
+<!-- ///////////////// Reactive form register ////////////////// -->
+
+<form autocomplete="off"
+  class="card p-4 m-3 shadow p-3 bg-body-tertiary rounded"
+  style="width: 700px"
+  [formGroup]="userForm"
+>
+  <div class="form-group m-3">
+    <input
+      type="text"
+      class="form-control shadow-sm rounded"
+      name="fullName"
+      placeholder="Enter your Full Name"
+      required minlength="5"
+      formControlName="fullName" [ngClass]="{'is-invalid':(fullName?.touched||fullName?.dirty)&&fullName?.invalid}"/>
+      <span class="invalid-feedback">
+        <span *ngIf="fullName?.errors?.['required']">Please enter your full name</span>
+        <span *ngIf="fullName?.errors?.['minlength']">Full name must be at least 5 characters</span>
+      </span>
+    </div>
+  <div class="form-group m-3">
+    <input
+      type="email"
+      class="form-control shadow-sm rounded"
+      name="email"
+      placeholder="Enter your Email"
+      required formControlName="email"
+      [ngClass]="{'is-invalid':(email?.touched||email?.dirty)&&email?.invalid}"/>
+      <span class="invalid-feedback">
+        <span *ngIf="email?.errors?.['required']">Please enter your email</span>
+        <span *ngIf="email?.errors?.['pattern']">Email must be match xxx@gmail.com</span>
+      </span>
+  </div>
+  <div class="form-group m-3">
+    <input
+      type="text"
+      class="form-control shadow-sm rounded"
+      name="mobileNumber"
+      placeholder="Enter your Mobile Number"
+      required 
+      formControlName="mobileNumber"
+      [ngClass]="{'is-invalid':(mobileNumber?.touched||mobileNumber?.dirty)&&mobileNumber?.invalid}"/>
+      <span class="invalid-feedback">
+        <span *ngIf="mobileNumber?.errors?.['required']">Please enter your Mobile Number</span>
+        <span *ngIf="mobileNumber?.errors?.['pattern']">Mobile Number must be match 0x0xxxxxxxx</span>
+      </span>
+  </div>
+
+  <div class="text-center my-2">
+    <button
+      type="submit"
+      class="btn btn-primary shadow rounded me-3"
+      style="width: 150px" (click)="registerAsUser()"
+    >
+      Register
+    </button>
+  </div>
+</form>
+
+<!-- ///////////////// Template form register ////////////////// -->
+
+<!-- <form autocomplete="off"
+  class="card p-4 m-3 shadow p-3 bg-body-tertiary rounded"
+  style="width: 700px"
+  (ngSubmit)="registerAsUser()" #userform="ngForm"
+>
+  <div class="form-group m-3">
+    <input
+      type="text"
+      class="form-control shadow-sm rounded"
+      name="fullName"
+      placeholder="Enter your Full Name"
+      required minlength="5"
+      [(ngModel)]="user.fullName" #fullName="ngModel" [ngClass]="{'is-invalid':(fullName.touched||fullName.dirty)&& fullName.invalid}"   />
+      <span class="invalid-feedback">
+        <span *ngIf="fullName.errors?.['required']">Please enter your full name</span>
+        <span *ngIf="fullName.errors?.['minlength']">Full name must be at least 5 characters</span>
+      </span>
+  </div>
+  <div class="form-group m-3">
+    <input
+      type="email"
+      class="form-control shadow-sm rounded"
+      name="email"
+      placeholder="Enter your Email"
+      required pattern="[a-z0-9]+@gmail\.com"
+      [(ngModel)]="user.email" #email="ngModel" [ngClass]="{'is-invalid':(email.touched||email.dirty)&& email.invalid}" 
+    />
+    <span class="invalid-feedback">
+      <span *ngIf="email.errors?.['required']">Please enter your email</span>
+      <span *ngIf="email.errors?.['pattern']">Email must be match xxx@gmail.com</span>
+    </span>
+  </div>
+  <div class="form-group m-3">
+    <input
+      type="text"
+      class="form-control shadow-sm rounded"
+      name="mobileNumber"
+      placeholder="Enter your Mobile Number"
+      required #mobileNumber="ngModel"
+      pattern="(010|011|012)[0-9]{8}"
+      [(ngModel)]="user.mobileNumber" [ngClass]="{'is-invalid':(mobileNumber.touched||mobileNumber.dirty)&& mobileNumber.invalid}" 
+    />
+    <span class="invalid-feedback">
+      <span *ngIf="mobileNumber.errors?.['required']">Please enter your Mobile Number</span>
+      <span *ngIf="mobileNumber.errors?.['pattern']">Mobile Number must be match 0x0xxxxxxxx</span>
+    </span>
+  </div>
+
+  <div class="text-center my-2">
+    <button
+      type="submit" [disabled]="userform.invalid"
+      class="btn btn-primary shadow rounded me-3"
+      style="width: 150px"
+    >
+      Register
+    </button>
+  </div>
+</form> -->
+

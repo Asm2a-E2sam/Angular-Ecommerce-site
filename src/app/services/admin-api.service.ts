@@ -21,6 +21,12 @@ export class AdminAPIService {
       JSON.stringify(newAdmin),
       this.http
     );
-  }
-
+    }
+    signInAdmin(email:string, password:string): Observable<Iadmin> {
+      return this.httpClient.get<Iadmin>(
+        `${environment.BaseApiURL}/admins?email=${email}&password=${password}`,
+        this.http
+      );
+    }
 }
+

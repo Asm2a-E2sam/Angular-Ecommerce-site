@@ -1,8 +1,8 @@
 <!-- add new product -->
-<div *ngIf="title"  style="width: 900px;">
+<div style="width: 900px;">
     <h3 class="text-center m-1 text-primary fw-bold" >Add New Product</h3>
 
-    <form class="card p-4 my-3 shadow p-3 bg-body-tertiary rounded" (ngSubmit)="addProduct()">
+    <form class="card p-4 my-3 shadow p-3 bg-body-tertiary rounded">
         <div class="row my-2">
           <div class="form-group col">
             <input type="text" class="form-control shadow-sm rounded" name="Name" placeholder="Enter Product Name" [(ngModel)]="newProduct.Name" >
@@ -37,7 +37,8 @@
         </div>
         
         <div class="text-center my-2">
-        <button type="submit" class="btn btn-primary shadow rounded" style="width:150px;">Add</button>
+        <button [hidden]="!this.title" class="btn btn-primary shadow rounded" style="width:150px;" (click)="addProduct()">Add</button>
+        <button [hidden]="this.title" class="btn btn-primary shadow rounded" style="width:150px;" (click)="editProduct()">Edit</button>
         </div>
       </form>
 </div>

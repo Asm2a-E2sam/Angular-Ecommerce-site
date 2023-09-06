@@ -17,8 +17,15 @@ export class UserAPIService {
 
   signUpUser(newUser: IUser): Observable<IUser> {
     return this.httpClient.post<IUser>(
-      `${environment.BaseApiURL}/admins`,
+      `${environment.BaseApiURL}/users`,
       JSON.stringify(newUser),
+      this.http
+    );
+  }
+
+  signInUser(email:string, mobileNumber:string): Observable<IUser> {
+    return this.httpClient.get<IUser>(
+      `${environment.BaseApiURL}/users?email=${email}&mobileNumber=${mobileNumber}`,
       this.http
     );
   }

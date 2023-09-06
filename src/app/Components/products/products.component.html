@@ -31,6 +31,10 @@
             <button class="btn btn-success buy-button me-3"[disabled]="item.Quantity==0" (click)="addToCard(item,count.value)">Buy Now</button>
           <a class="btn btn-success buy-button" [routerLink]="['/products',item.id]">More Details</a>
           </div>
+          <div class="d-flex my-3" [hidden]="isAdminLoggedIn">
+            <a class="btn btn-success buy-button me-3" [routerLink]="['/admin/editProduct',item.id]">Edit Product</a>
+            <a class="btn btn-success buy-button" (click)="deleteProduct(item.id)">Delete Product</a>
+         </div>
         </div>
       </div>
       

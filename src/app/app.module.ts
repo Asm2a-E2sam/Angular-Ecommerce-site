@@ -9,7 +9,7 @@ import { FooterComponent } from './Components/footer/footer.component';
 import { ProductsComponent } from './Components/products/products.component';
 import { SideMenuComponent } from './Components/side-menu/side-menu.component';
 
-import{ FormsModule } from '@angular/forms';
+import{ FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormateCardNumberPipe } from './Pipes/formate-card-number.pipe';
 import { MainComponent } from './Components/main/main.component';
 import { ContactComponent } from './Components/contact/contact.component';
@@ -27,6 +27,7 @@ import { RegisterComponent } from './Components/register/register.component';
 import { LogoutComponent } from './Components/logout/logout.component';
 import { ProfileComponent } from './Components/profile/profile.component';
 import { UsersComponent } from './Components/users/users.component';
+import { AdminLoginComponent } from './Components/admin-login/admin-login.component';
 
 @NgModule({
   declarations: [
@@ -51,13 +52,15 @@ import { UsersComponent } from './Components/users/users.component';
     RegisterComponent,
     LogoutComponent,
     ProfileComponent,
-    UsersComponent
+    UsersComponent,
+    AdminLoginComponent
     ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

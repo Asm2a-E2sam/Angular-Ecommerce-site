@@ -48,6 +48,20 @@ export class ProductAPIService{
     );
   }
 
+  editProduct(newProduct: IProduct): Observable<IProduct> {
+    return this.httpClient.patch<IProduct>(
+      `${environment.BaseApiURL}/products/${newProduct.id}`,
+      JSON.stringify(newProduct),
+      this.http
+    );
+  }
+
+  deleteProduct(id: number): Observable<IProduct> {
+    return this.httpClient.delete<IProduct>(
+      `${environment.BaseApiURL}/products/${id}`
+    );
+  }
+
   // ProductsIds():number[]{
   //   return this.getAllProducts().subscribe(
   //     data =>{

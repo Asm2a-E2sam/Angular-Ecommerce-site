@@ -1,6 +1,6 @@
 import { ProductAPIService } from 'src/app/services/product-api.service';
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IProduct } from 'src/app/Models/iproduct';
 
 @Component({
@@ -8,13 +8,14 @@ import { IProduct } from 'src/app/Models/iproduct';
   templateUrl: './add-product.component.html',
   styleUrls: ['./add-product.component.scss']
 })
-export class AddProductComponent {
+export class AddProductComponent implements OnInit {
+  newProduct: IProduct = {} as IProduct;
   title:boolean = false
-  constructor(private productAPIService:ProductAPIService, private router: Router){
+  constructor(private productAPIService:ProductAPIService, private router: Router, private activatedRouter:ActivatedRoute){
     this.title = location.href.toString().includes("addProduct");
+    // this.newProduct =  productAPIService.getProductByID(3).subscribe({})
   }
 
-  newProduct: IProduct = {} as IProduct;
   addProduct(){
     this.productAPIService.addNewProduct(this.newProduct).subscribe({
       next:(data)=>{
@@ -27,39 +28,29 @@ export class AddProductComponent {
     })
   }
 
-//   addNewPrdStatic() {
-//     let newProduct: Iproduct = {
-//       id: 90,
-//       name: 'new title',
-//       price: 100,
-//       quantity: 3,
-//       prdImgURL:
-//         'https://media.homecentre.com/i/homecentre/161618330-161618330-HC300719_01-2100.jpg?fmt=auto&$quality-standard$&sm=c&$prodimg-d-sqr-pdp-2x$',
-//       categoryID: 2,
-//       Material: 'wood',
-//     };
-//     this.apiProduct.addNewPrd(newProduct).subscribe({
-//       next:(data)=>{
-//         console.log("Data:", data);
-//             },
-//       error:(err)=>{
-//         console.log('Error:', err)
-//       }
-//     })
-// }
-//         console.log(newProduct);
+  editProduct(){
+    this.productAPIService.editProduct(this.newProduct).subscribe({
+      next:(data)=>{
+        console.log("Data:", data);
+        this.router.navigate(['/products'])
+      },
+      error:(err)=>{
+        console.log('Error:', err)
+      }
+    })
+  }
 
-//         alert(this.text);
-//       },
-
-//    addNewPrd(newPrd: Iproduct): Observable<Iproduct> {
-//     // console.log(newPrd);
-//     console.log(
-//       this.httpClient.post<Iproduct>(
-//         `${environment.BaseApiURL}/products`,
-//         JSON.stringify(newPrd),
-//         this.http
-//       )
-//     );
-
+  ngOnInit(): void {
+    // this.id = (this.activatedRouter.snapshot.paramMap.get('id'))? Number(this.activatedRouter.snapshot.paramMap.get('id')) : 0;
+    if(!this.title){
+      this.activatedRouter.paramMap.subscribe((params)=>{
+        let id = (params.get('id'))? Number(params.get('id')): 0;
+        this.productAPIService.getProductByID(id).subscribe({
+          next:(data)=>{
+            this.newProduct= data;
+          }
+        })
+      })
+    }
+  }
 }

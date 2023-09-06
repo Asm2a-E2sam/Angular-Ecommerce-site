@@ -38,7 +38,14 @@
       routerLink="products"
       >All Products</li
     >
-    <li
+    <li *ngIf="isAdminLoggedIn"
+    class="nav-item col-12 col-md-4 col-lg-2 text-white"
+    role="button"
+    routerLinkActive="fs-5 fw-bold text-blue"
+    routerLink="admin/addProduct"
+    >Add Product</li
+  >
+    <li *ngIf="!isAdminLoggedIn"
       class="nav-item col-12 col-md-4 col-lg-2 text-white"
       role="button"
       routerLinkActive="fs-5 fw-bold text-blue"
@@ -64,31 +71,40 @@
             >
           </li> -->
           <!-- Register -->
-          <li class="nav-item col-12 col-md-4 col-lg-1  me-4">
-            <a routerLink="admin/register"
+          <li class="nav-item col-12 col-md-4 col-lg-1  me-4" [hidden]="isUserLogged">
+            <a routerLink="user/register"
               class="btn btn-primary fw-bold px-3 fs-5"
               aria-current="page"
-              ><span class="fs-6">Register</span></a
+              ><span class="fs-6" >Register</span></a
             >
           </li>
           <!-- Log In -->
-          <li class="nav-item col-12 col-md-4 col-lg-2" style="text-align : start;">
+          <li class="nav-item col-12 col-md-4 col-lg-2" style="text-align : start;" [hidden]="isUserLogged">
             <a
-            routerLink="admin/login"
+            routerLink="user/login"
               class="btn btn-primary fw-bold px-3 fs-5"
               aria-current="page"
               ><span class="fs-6">Log In</span></a
             >
           </li>
-          <!-- Log Out -->
-          <!-- <li class="nav-item col-12 col-md-4 col-lg-2" style="text-align : start;">
+          <!-- profile -->
+          <li class="nav-item col-12 col-md-4 col-lg-1" style="text-align : start;" [hidden]="!isUserLogged">
             <a
-            routerLink="admin/logout"
+            routerLink="user/profile"
+              class="btn btn-primary fw-bold px-3 fs-5"
+              aria-current="page"
+              ><span class="fs-6">Profile</span></a
+            >
+          </li>
+          <!-- Log Out -->
+          <li class="nav-item col-12 col-md-4 col-lg-2" style="text-align : start;" [hidden]="!isUserLogged||!isAdminLoggedIn">
+            <a
+            routerLink="logout"
               class="btn btn-primary fw-bold px-3 fs-5"
               aria-current="page"
               ><span class="fs-6">Log Out</span></a
             >
-          </li> -->
+          </li>
         </ul>
       </div>
     </div>
