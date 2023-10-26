@@ -9,5 +9,7 @@ import { ProductServicesService } from 'src/app/services/product-services.servic
 })
 export class CardComponent {
   cardArr:Card[] = []
-  constructor(public PServices:ProductServicesService) { }
+  constructor(public PServices:ProductServicesService) { 
+    this.cardArr = PServices.cardArr;
+  }
 }

@@ -62,12 +62,5 @@ export class ProductAPIService{
     );
   }
 
-  // ProductsIds():number[]{
-  //   return this.getAllProducts().subscribe(
-  //     data =>{
-  //       data.map((prd) => prd.id);
-  //     }
-  //   )
-  // }
 }
 

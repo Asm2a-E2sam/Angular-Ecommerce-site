@@ -13,7 +13,7 @@
     {
       "id": 2,
       "Name": "Rice Cooker",
-      "Quantity": 4,
+      "Quantity": 5,
       "Price": 7000,
       "Img": "../../../assets/images/Cooker.jfif",
       "CategoryID": 5,
@@ -223,6 +223,24 @@
       "email": "lareen@gmail.com",
       "mobileNumber": "01012345678",
       "id": 3
+    },
+    {
+      "fullName": "ganaa",
+      "email": "gana@gmail.com",
+      "mobileNumber": "01212334567",
+      "id": 4
+    },
+    {
+      "fullName": "ganaa",
+      "email": "gana@gmail.com",
+      "mobileNumber": "01212345678",
+      "id": 5
+    },
+    {
+      "fullName": "ahmed",
+      "email": "ahmed@gmail.com",
+      "mobileNumber": "01012345678",
+      "id": 6
     }
   ]
 }

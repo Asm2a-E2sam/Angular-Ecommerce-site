@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit, Input } from '@angular/core';
 import { IProduct } from 'src/app/Models/iproduct';
 import { ICategories } from 'src/app/Models/icategories';
@@ -8,6 +9,7 @@ import { ProductServicesService } from 'src/app/services/product-services.servic
 import { CategoryAPIService } from 'src/app/services/category-api.service';
 import { ProductAPIService } from 'src/app/services/product-api.service';
 import { identifierName } from '@angular/compiler';
+import { UserAuthService } from 'src/app/services/user-auth.service';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -16,8 +18,10 @@ import { identifierName } from '@angular/compiler';
 
 export class ProductsComponent implements OnInit{
   sizeOfCard: number = 0;
-  constructor(public PServices:ProductServicesService, public PApiService: ProductAPIService){
+  isLogged:boolean = false;
+  constructor(private router: Router ,public PServices:ProductServicesService, public PApiService: ProductAPIService, public userAuth :UserAuthService){
     let tenPercent: string = PServices.tenPercent;
+    // this.isLogged= this.userAuth.isUserLoggedIn;
   }
   
   ngOnInit(): void {
@@ -26,15 +30,28 @@ export class ProductsComponent implements OnInit{
         this.PApiService.filteredProducts = data;
       }
     )
+    this.isAdminLoggedIn()
+    // this.userAuth.getUserStatus().subscribe({
+    //   next:(user)=>{
+    //     this.isLogged=user
+    //   },
+    //   error:(error)=>{
+    //     console.log(error);          
+    //   }
+    // })
   }
   
-  addToCard(item: IProduct,count: string){
-    this.sizeOfCard += parseInt(count);
-  }
+  // addToCard(item: IProduct,count: string){
+  //   this.sizeOfCard += parseInt(count);
+  // }
 
-  get isAdminLoggedIn():boolean{
+  isAdminLoggedIn(){
     let token =localStorage.getItem('token')      
-    return (token && token.includes("admin"))?true:false
+    if(token && token.includes("admin")){
+      this.isLogged = true;
+    }else{
+      this.isLogged = false;
+    }
   }
 
   deleteProduct(id: number){
@@ -42,13 +59,12 @@ export class ProductsComponent implements OnInit{
     this.PApiService.deleteProduct(id).subscribe({
       next:(data)=>{
         console.log("Data:", data);
-        
+        this.router.navigate(['/products'])  
       },
       error:(err)=>{
         console.log('Error:', err)
       }
     })
   }
-
   
 }

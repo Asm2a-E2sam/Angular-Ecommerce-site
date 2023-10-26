@@ -71,7 +71,7 @@
             >
           </li> -->
           <!-- Register -->
-          <li class="nav-item col-12 col-md-4 col-lg-1  me-4" [hidden]="isUserLogged">
+          <li class="nav-item col-12 col-md-4 col-lg-2 " [hidden]="isUserLogged">
             <a routerLink="user/register"
               class="btn btn-primary fw-bold px-3 fs-5"
               aria-current="page"
@@ -97,7 +97,7 @@
             >
           </li>
           <!-- Log Out -->
-          <li class="nav-item col-12 col-md-4 col-lg-2" style="text-align : start;" [hidden]="!isUserLogged||!isAdminLoggedIn">
+          <li class="nav-item col-12 col-md-4 col-lg-2" style="text-align : start;" [hidden]="!isUserLogged&&!isAdminLoggedIn">
             <a
             routerLink="logout"
               class="btn btn-primary fw-bold px-3 fs-5"

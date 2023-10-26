@@ -22,16 +22,16 @@ import { AdminLoginComponent } from './Components/admin-login/admin-login.compon
 
 const routes: Routes = [
   {path:"", redirectTo :"home", pathMatch:"full"},
-  {path:"home", component: MainComponent, canActivate:[userGuard]},
-  {path:"products", component: MoreDetailsComponent, canActivate:[userGuard],
+  {path:"home", component: MainComponent},
+  {path:"products", component: MoreDetailsComponent,
   children:
     [{path: "", component: AllProductsComponent},
     {path: ":id", component: SingleProductComponent}    
     ]
   },
-  {path:"contact", component: ContactComponent, canActivate:[userGuard]},
+  {path:"contact", component: ContactComponent},
   {path:"card", component: CardComponent, canActivate:[userGuard]},
-  {path:"about", component: AboutComponent, canActivate:[userGuard]},
+  {path:"about", component: AboutComponent},
   {path:"admin", component: AdminComponent,
   children:
     [{path:"", component: AdminComponent},

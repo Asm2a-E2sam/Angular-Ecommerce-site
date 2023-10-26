@@ -11,6 +11,7 @@ import { IProduct } from 'src/app/Models/iproduct';
 export class AddProductComponent implements OnInit {
   newProduct: IProduct = {} as IProduct;
   title:boolean = false
+
   constructor(private productAPIService:ProductAPIService, private router: Router, private activatedRouter:ActivatedRoute){
     this.title = location.href.toString().includes("addProduct");
     // this.newProduct =  productAPIService.getProductByID(3).subscribe({})
@@ -32,7 +33,7 @@ export class AddProductComponent implements OnInit {
     this.productAPIService.editProduct(this.newProduct).subscribe({
       next:(data)=>{
         console.log("Data:", data);
-        this.router.navigate(['/products'])
+        this.router.navigate(['/home'])
       },
       error:(err)=>{
         console.log('Error:', err)

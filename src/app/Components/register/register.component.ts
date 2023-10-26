@@ -51,7 +51,7 @@ export class RegisterComponent {
       this.userAPIService.signUpUser(this.user).subscribe({
         next:(data)=>{
           console.log("Data:", data);
-          this.router.navigate(['/login'])
+          this.router.navigate(['/user/login'])
         },
         error:(err)=>{
           console.log('Error:', err)
